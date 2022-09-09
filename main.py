@@ -69,7 +69,7 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 20
         print(self.game.score())
 
-    # function with same name    need fixing
+
     def testOneSpare(self):
         self.game.rolls(5)
         self.game.rolls(5)
@@ -91,8 +91,8 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 300
         print(self.game.score())
 
-    # function with same name   need fixing
-    def testOneSpare(self):
+
+    def testAllSpare(self):
         self.rollMany(5, 21)
         assert self.game.score() == 150
         print(self.game.score())
@@ -101,7 +101,27 @@ class TestBowlingGame(unittest.TestCase):
     def rollMany(self, pins, rolls):
         for i in range(rolls):
             self.game.rolls(pins)
+        # print(self.game.score())
+
+    # Function to check Last Frame Test Case
+    def testLastFrame(self):
+        self.rollMany(0, 18)
+        self.game.roll(6)
+        self.game.roll(4)
+        self.game.roll(5)
+        assert self.game.score()==15
         print(self.game.score())
+
+# creating object of a Test Bowling class to access all the functions for different test cases
+newGame = TestBowlingGame()
+# newGame.testGutterGame()
+# newGame.testAllOnes
+# newGame.testOneSpare
+# newGame.testOneStrike
+# newGame.testPerfectGame
+# newGame.testAllSpare
+
+newGame.testLastFrame
 
 
 
