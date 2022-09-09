@@ -60,7 +60,7 @@ class TestBowlingGame(unittest.TestCase):
 
     def testGutterGame(self):
         for i in range(0, 20):
-            self.game.rolls(0)
+            self.game.roll(0)
         assert self.game.score() == 0
         print(self.game.score())                  # calling score function from Bowling Class with game object
 
@@ -71,17 +71,17 @@ class TestBowlingGame(unittest.TestCase):
 
 
     def testOneSpare(self):
-        self.game.rolls(5)
-        self.game.rolls(5)
-        self.game.rolls(3)
+        self.game.roll(5)
+        self.game.roll(5)
+        self.game.roll(3)
         self.rollMany(0, 17)
         assert self.game.score() == 16
         print(self.game.score())
 
     def testOneStrike(self):
-        self.game.rolls(10)
-        self.game.rolls(4)
-        self.game.rolls(3)
+        self.game.roll(10)
+        self.game.roll(4)
+        self.game.roll(3)
         self.rollMany(0, 16)
         assert self.game.score() == 24
         print(self.game.score())
@@ -100,8 +100,7 @@ class TestBowlingGame(unittest.TestCase):
 
     def rollMany(self, pins, rolls):
         for i in range(rolls):
-            self.game.rolls(pins)
-        # print(self.game.score())
+            self.game.roll(pins)
 
     # Function to check Last Frame Test Case
     def testLastFrame(self):
@@ -109,19 +108,19 @@ class TestBowlingGame(unittest.TestCase):
         self.game.roll(6)
         self.game.roll(4)
         self.game.roll(5)
-        assert self.game.score()==15
+        assert self.game.score() == 15
         print(self.game.score())
 
 # creating object of a Test Bowling class to access all the functions for different test cases
 newGame = TestBowlingGame()
 # newGame.testGutterGame()
-# newGame.testAllOnes
-# newGame.testOneSpare
-# newGame.testOneStrike
-# newGame.testPerfectGame
-# newGame.testAllSpare
+newGame.testAllOnes()
+# newGame.testOneSpare()
+# newGame.testOneStrike()
+# newGame.testPerfectGame()
+# newGame.testAllSpare()
 
-newGame.testLastFrame
+# newGame.testLastFrame()
 
 
 
