@@ -14,36 +14,41 @@ class BowlingGame:
         rollIndex = 0
         for frameIndex in range(10):
             # checking for strike with strike function with takes rollIndex as a argument which targets index of an array for comaprison with 10
-            if self.isStrike(rollIndex):
-                result += self.strikeScore(rollIndex)
+            # if self.isStrike(rollIndex):
+            if self.rolls[rollIndex] == 10:
+                # result += self.strikeScore(rollIndex)
+                result += 10 + self.rolls[rollIndex + 1] + self.rolls[rollIndex + 2]
                 rollIndex += 1
-            elif self.isSpare(rollIndex):
-                result += self.spareScore(rollIndex)
+            # elif self.isSpare(rollIndex):
+            elif self.rolls[rollIndex] + self.rolls[rollIndex + 1] == 10:
+                # result += self.spareScore(rollIndex)
+                result += 10 + self.rolls[rollIndex + 2]
                 rollIndex += 2
             else:
-                result += self.frameScore(rollIndex)
+                # result += self.frameScore(rollIndex)
+                result += self.rolls[rollIndex] + self.rolls[rollIndex + 1]
                 rollIndex += 2
         return result
 
     # Function for checking Strike
-    def isStrike(self, rollIndex):
-        return self.rolls[rollIndex] == 10
+    # def isStrike(self, rollIndex):
+    #     return self.rolls[rollIndex] == 10
 
     # function for checking spare
-    def isSpare(self, rollIndex):
-        return self.rolls[rollIndex] + self.rolls[rollIndex + 1] == 10
+    # def isSpare(self, rollIndex):
+    #     return self.rolls[rollIndex] + self.rolls[rollIndex + 1] == 10
 
     # function for score for strike where next 2 numbers in array is added as a bonus with 10 targetting next index of two numbers
-    def strikeScore(self, rollIndex):
-        return 10 + self.rolls[rollIndex + 1] + self.rolls[rollIndex + 2]
+    # def strikeScore(self, rollIndex):
+    #     return 10 + self.rolls[rollIndex + 1] + self.rolls[rollIndex + 2]
 
     # function for spare score
-    def spareScore(self, rollIndex):
-        return 10 + self.rolls[rollIndex + 2]
+    # def spareScore(self, rollIndex):
+    #     return 10 + self.rolls[rollIndex + 2]
 
     # function for frame score
-    def frameScore(self, rollIndex):
-        return self.rolls[rollIndex] + self.rolls[rollIndex + 1]
+    # def frameScore(self, rollIndex):
+    #     return self.rolls[rollIndex] + self.rolls[rollIndex + 1]
 
 # Test Bowling Game class - with different functions checking different test
 class TestBowlingGame(unittest.TestCase):
@@ -51,13 +56,13 @@ class TestBowlingGame(unittest.TestCase):
     # creating an object of Bowling class
     game = BowlingGame()
 
+    # Function with a loop for rolling dice which will take 2 arguments pins = specific number and rolls = number of times of loop
     def rollMany(self, pins, rolls):
         for i in range(rolls):
             self.game.roll(pins)
 
     def testGutterGame(self):
-        for i in range(0, 20):
-            self.game.roll(0)
+        self.rollMany(0, 20)
         assert self.game.score() == 0
         print(self.game.score())                  # calling score function from Bowling Class with game object
 
@@ -103,17 +108,17 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 15
         print(self.game.score())
 
-# creating object of a Test Bowling class to access all the functions for different test cases
+# creating object of a Test Bowling class
 newGame = TestBowlingGame()
-newGame.testGutterGame()
+
+# Different Test Cases
+# newGame.testGutterGame()
 # newGame.testAllOnes()
 # newGame.testOneSpare()
 # newGame.testOneStrike()
 # newGame.testPerfectGame()
 # newGame.testAllSpare()
-# newGame.testLastFrame()
-
-
+newGame.testLastFrame()
 
 
 
