@@ -36,7 +36,7 @@ class TestBowlingGame(unittest.TestCase):
     # Function with a loop takes 2 arguments: pins = specific number and rolls = number of times of loop
     def rollMany(self, pins, rolls):
         for i in range(rolls):
-            self.game.roll(pins)                  # Calling roll function from Bowling lass
+            self.game.roll(pins)                  # Calling roll function from Bowling class
 
     # Function for testing all zeros
     def testGutterGame(self):
