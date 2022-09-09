@@ -5,11 +5,9 @@ import unittest
 class BowlingGame:
     def __init__(self):
         self.rolls = []    #empty array to save the pins or numbers
-
     # Function or method for appending an array where pins will be saved as score, it will take an argument for specific pin or number
     def roll(self, pins):
         self.rolls.append(pins)
-
     # Function for calculation score
     def score(self):
         result = 0
@@ -25,7 +23,7 @@ class BowlingGame:
             else:
                 result += self.frameScore(rollIndex)
                 rollIndex += 2
-            return result
+        return result
 
     # Function for checking Strike
     def isStrike(self, rollIndex):
@@ -47,16 +45,15 @@ class BowlingGame:
     def frameScore(self, rollIndex):
         return self.rolls[rollIndex] + self.rolls[rollIndex + 1]
 
-
-
-# File 2 (Test.py)
-# This file has information about test cases which you need to test.
-
 # Test Bowling Game class - with different functions checking different test
 class TestBowlingGame(unittest.TestCase):
 
     # creating an object of Bowling class
     game = BowlingGame()
+
+    def rollMany(self, pins, rolls):
+        for i in range(rolls):
+            self.game.roll(pins)
 
     def testGutterGame(self):
         for i in range(0, 20):
@@ -97,11 +94,6 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 150
         print(self.game.score())
 
-
-    def rollMany(self, pins, rolls):
-        for i in range(rolls):
-            self.game.roll(pins)
-
     # Function to check Last Frame Test Case
     def testLastFrame(self):
         self.rollMany(0, 18)
@@ -113,13 +105,12 @@ class TestBowlingGame(unittest.TestCase):
 
 # creating object of a Test Bowling class to access all the functions for different test cases
 newGame = TestBowlingGame()
-# newGame.testGutterGame()
-newGame.testAllOnes()
+newGame.testGutterGame()
+# newGame.testAllOnes()
 # newGame.testOneSpare()
 # newGame.testOneStrike()
 # newGame.testPerfectGame()
 # newGame.testAllSpare()
-
 # newGame.testLastFrame()
 
 
