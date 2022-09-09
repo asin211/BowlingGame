@@ -52,27 +52,31 @@ class BowlingGame:
 # File 2 (Test.py)
 # This file has information about test cases which you need to test.
 
-
+# Test Bowling Game class - with different functions checking different test
 class TestBowlingGame(unittest.TestCase):
 
-    def setUp(self):
-        self.game = BowlingGame.BowlingGame()
+    # creating an object of Bowling class
+    game = BowlingGame()
 
     def testGutterGame(self):
         for i in range(0, 20):
             self.game.rolls(0)
         assert self.game.score() == 0
+        print(self.game.score())                  # calling score function from Bowling Class with game object
 
     def testAllOnes(self):
         self.rollMany(1, 20)
         assert self.game.score() == 20
+        print(self.game.score())
 
+    # function with same name    need fixing
     def testOneSpare(self):
         self.game.rolls(5)
         self.game.rolls(5)
         self.game.rolls(3)
         self.rollMany(0, 17)
         assert self.game.score() == 16
+        print(self.game.score())
 
     def testOneStrike(self):
         self.game.rolls(10)
@@ -80,18 +84,24 @@ class TestBowlingGame(unittest.TestCase):
         self.game.rolls(3)
         self.rollMany(0, 16)
         assert self.game.score() == 24
+        print(self.game.score())
 
     def testPerfectGame(self):
         self.rollMany(10, 12)
         assert self.game.score() == 300
+        print(self.game.score())
 
+    # function with same name   need fixing
     def testOneSpare(self):
         self.rollMany(5, 21)
         assert self.game.score() == 150
+        print(self.game.score())
+
 
     def rollMany(self, pins, rolls):
         for i in range(rolls):
             self.game.rolls(pins)
+        print(self.game.score())
 
 
 
