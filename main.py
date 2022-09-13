@@ -61,7 +61,7 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 20
         print(self.game.score())
 
-    # Function for testing last frame with spare ball
+    # Function for testing with spare ball
     def testOneSpare(self):
         self.game.roll(5)
         self.game.roll(5)
@@ -99,6 +99,20 @@ class TestBowlingGame(unittest.TestCase):
         self.game.roll(5)
         assert self.game.score() == 15
         print(self.game.score())
+
+#Documentation
+    rollMany.__doc__ = "Function with a loop takes 2 arguments: pins = specific number and rolls = number of times of loop. (Same pins for number of times the rolls)"
+    testGutterGame.__doc__ = "Function for testing all zeros"
+    testAllOnes.__doc__ = "Function for testing all ones in all games in all frames"
+    testOneSpare.__doc__ = "Function for testing with spare ball, checking bonus score is added for 1 spare ball "
+    testOneStrike.__doc__ = "Function for testing one strike and checking bonus score is added for next 2 games"
+    testPerfectGame.__doc__ = "Function for testing perfect Game if all are strikes and checking maximum score including bonuses"
+    testAllSpare.__doc__ = "Function for testing all spares and checking score with all the bonuses as well"
+    testLastFrame.__doc__ = "Function to testing Last Frame Test Case with 3 chances all together for last frame without any extra bonus acore added to the score"
+
+
+
+
 
 
 # creating object of a Test Bowling class
