@@ -31,7 +31,10 @@ class BowlingGame:
                 rollIndex += 2
         return result        #returning the total score for bowling game
 
-
+# Documentaion
+    __init__.__doc__ = "A function to initialize an empty array"
+    roll.__doc__ = "A function for appending an array, it will take an argument for specific pin or number"
+    score.__doc__ = "A function to calculate score with normal score plus bonus points for different frames (using for loop and different conditional statements according to the bowling game)"
 
 
 
@@ -96,6 +99,7 @@ class TestBowlingGame(unittest.TestCase):
         self.game.roll(5)
         assert self.game.score() == 15
         print(self.game.score())
+
 
 # creating object of a Test Bowling class
 newGame = TestBowlingGame()
